@@ -1,6 +1,5 @@
 let express = require("express");
 let app = express();
-//let PORT = process.env.PORT || 3000;
 let path = require("path");
 let mongoose = require("mongoose")
 let methodOverride = require("method-override");
@@ -9,8 +8,6 @@ let postRoutes = require("./routes/blogRoutes");
 require("dotenv").config();
 let db = process.env.MONGO_URL;
 let PORT = process.env.PORT;
-
-//let db = 'mongodb+srv://yurakarpa27:qwerty123@cluster0.cwzsimc.mongodb.net/Node-blog';
 
 mongoose.connect(db);
 

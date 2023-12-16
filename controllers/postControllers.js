@@ -5,8 +5,6 @@ let getAddPost = (req, res) => {
 }
 
 let addPost = (req, res) => {
-  // let title = req.body.title;
-  // let author = req.body.author;
   let { title, author } = req.body;
   let post = new Post({ title, author });
   post
