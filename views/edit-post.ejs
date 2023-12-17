@@ -1,15 +1,14 @@
 <%- include('./partials/header.ejs') %> <%- include('./partials/nav.ejs') %>
-<div style="max-width: 520px; margin: 0 auto">
+<div class="edit-post">
   <h1><%=title%></h1>
   <div>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
-    voluptas quod, ducimus dolorum architecto in, laboriosam quos totam soluta
-    fugiat, a illum quibusdam minus.
+    <%=description%>
   </div>
+  <div>©<%=author%></div>
 
   <form method="post" action="/edit-post/<%=post.id%>?_method=PUT">
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Назва </label>
+      <label for="exampleInputPassword1" class="form-label">Назва статті </label>
       <input
         required
         type="text"
@@ -19,17 +18,18 @@
       />
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Прізвище</label>
-      <input
+      <label for="description" class="form-label">Опис</label>
+      <textarea
         required
         type="text"
         class="form-control"
-        id="exampleInputPassword1"
-        name="author"
-      />
+        id="description"
+        name="description"
+        rows="4"
+      ></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">Створити</button>
+    <button type="submit" class="btn btn-primary">Редагувати</button>
   </form>
 </div>
 <%- include('./partials/footer.ejs') %>

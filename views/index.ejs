@@ -1,13 +1,29 @@
-<%- include('./partials/header.ejs') %> <%- include('./partials/nav.ejs') %>
-<div style="max-width: 520px; margin: 0 auto">
-  <h1><%=title%></h1>
+<%- include('./partials/header.ejs') %> 
+<%- include('./partials/nav.ejs') %>
 
-  <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores voluptas quod, ducimus dolorum architecto in,
-    laboriosam quos totam soluta fugiat, a illum quibusdam minus.
-  </p>
-
-  <p>Build with Node&Express.js and MongoDB&Mongoose</p>
+<div class="main-content">
+  <h1>Найсвіжіші статті</h1>
+  
+  <% if (latestArticles.length > 0) { %>
+    <div>
+      <% latestArticles.forEach((post) => { %>
+        <div>
+          <h3>
+            <a href="/post/<%= post._id %>" style="color: #000000;">
+              <%= post.title %>
+            </a>
+          </h3>
+          <p><%= post.description %></p>
+          <p style="text-align: left;">
+            ©<%= post.author || 'Unknown' %>
+            <span style="float: right;"><%= post.createdAt.toLocaleDateString() %></span>
+          </p>
+        </div>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <p>На жаль, немає статей для відображення.</p>
+  <% } %>
 </div>
 
 <%- include('./partials/footer.ejs') %>
